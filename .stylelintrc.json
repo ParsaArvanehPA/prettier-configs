@@ -71,7 +71,7 @@
             "/^animation/": "ms",
             "line-height": ["px", "rem"],
             "/^border-width/": ["px"],
-            "/^padding|^gap/|^width/|^height/": ["rem"]
+            "/^padding|^gap|^width|^height|^inline|^block/": ["rem", "%"]
         },
         "at-rule-allowed-list": [":host", "host"],
 
