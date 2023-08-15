@@ -54,11 +54,15 @@
         "media-feature-name-no-unknown": true,
         "media-feature-name-value-no-unknown": true,
         "no-unknown-animations": true,
-        "no-unknown-custom-properties": true,
         "property-no-unknown": true,
         "selector-pseudo-class-no-unknown": true,
         "selector-pseudo-element-no-unknown": true,
-        "selector-type-no-unknown": true,
+        "selector-type-no-unknown": [
+            "true",
+            {
+                "ignoreTypes": ["/^ui-/", "::ng-host"]
+            }
+        ],
         "unit-no-unknown": true,
 
         "color-hex-alpha": "never",
@@ -67,13 +71,14 @@
 
         "declaration-no-important": true,
         "declaration-property-unit-allowed-list": {
-            "font-size": ["rem", "em"],
             "/^animation/": "ms",
             "line-height": ["px", "rem"],
             "/^border-width/": ["px"],
-            "/^padding|^gap|^width|^height|^inline|^block/": ["rem", "%"]
+            "/^padding|^gap|^width|^height|^inline|^block/": ["rem", "%", "vw", "vh", "ch"]
         },
-        "at-rule-allowed-list": [":host", "host"],
+        "declaration-property-unit-disallowed-list": {
+            "font-size": ["px"]
+        },
 
         "function-disallowed-list": ["rgb", "hwb", "lch"],
 
@@ -87,7 +92,13 @@
         "selector-type-case": "lower",
         "value-keyword-case": "lower",
 
-        "at-rule-empty-line-before": "always",
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "ignore": ["first-nested"],
+                "except": ["after-same-name"]
+            }
+        ],
         "comment-empty-line-before": "always",
         "declaration-empty-line-before": null,
         "rule-empty-line-before": "always",
@@ -102,7 +113,7 @@
         "hue-degree-notation": "angle",
         "keyframe-selector-notation": "percentage-unless-within-keyword-only-block",
         "media-feature-range-notation": "prefix",
-        "selector-not-notation": "complex",
+        "selector-not-notation": "simple",
         "selector-pseudo-element-colon-notation": "double",
 
         "font-family-name-quotes": "always-where-recommended",
